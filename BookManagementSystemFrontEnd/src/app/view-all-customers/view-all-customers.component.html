@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h1>Customers</h1>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Zipcode</th>
+                    <th>phone Numberer</th>
+                    <th> Action</th>
+                    <th> Action</th>
+                    
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr  *ngFor= "let i of customers">
+                    <td>{{i.customerId}}</td>
+                    <td>{{i.customerName}}</td>
+                    <td>{{i.emailAddress}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.city}}</td>
+                    <td>{{i.country}}</td>
+                    <td>{{i.zipCode}}</td>
+                    <td>{{i.phoneNumber}}</td>
+                    <td><button style="background-color:red;color:white;width:150px; height:40px;"(click)="deleteCustomer(i.customerId)">Delete</button></td>
+                    <td><button style="background-color:blue;color:white;width:150px; height:40px;" [routerLink]="['/update-customer',i.customerId]">Update Customer</button>  </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

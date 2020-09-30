@@ -1,0 +1,129 @@
+<h3>Create Customer</h3>
+<div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+       
+    
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name" class="col-xs-2 control-label">Name</label>
+                <div class="col-xs-10">
+                    <input required id="Name" name="Name" [(ngModel)] = "customer.customerName" type="text"
+                    placeholder="Enter Customer Name" class="form-control" #nameControl="ngModel" minlength="3" maxlength="20" 
+                    pattern="^[a-zA-z]+([\s][a-zA-Z]+)*$">
+                </div>
+                <div class="text-danger" *ngIf="nameControl.invalid && nameControl.touched">
+                    <div *ngIf="nameControl.errors.required">
+                        Name is Required
+                    </div>
+                    <div class="text-danger" *ngIf="nameControl.errors.minlength">
+                        Please Enter Minimum of 3 Characters  Name
+                    </div>
+                    <div class="text-danger" *ngIf="nameControl.errors.pattern">
+                        Please Enter Valid  Name
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name" class="col-xs-2 control-label">Address</label>
+                <div class="col-xs-10">
+                    <input required id="Address" name="Address" [(ngModel)] = "customer.address" type="text"
+                    placeholder="Enter Address" class="form-control" #addressControl="ngModel" minlength="5" maxlength="50" 
+                    >
+                </div>
+                <div class="text-danger" *ngIf="addressControl.invalid && addressControl.touched">
+                    <div *ngIf="addressControl.errors.required">
+                           Address is required
+                    </div>
+                    <div class="text-danger" *ngIf="addressControl.errors.minlength">
+                        Please Enter Minimum of 5 Characters address
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name" class="col-xs-2 control-label">Email</label>
+                <div class="col-xs-10">
+                    <input required id="Email" name="Email" [(ngModel)] = "customer.emailAddress" type="text"
+                     placeholder=" Enter Email" class="form-control" #emailControl="ngModel"  
+                    pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$">
+                </div>
+                <div class="text-danger" *ngIf="emailControl.invalid && emailControl.touched">
+                    <div *ngIf="emailControl.errors.required">
+                        Email is Required
+                    </div>
+                    
+                    <div class="text-danger" *ngIf="emailControl.errors.pattern">
+                        Please Enter Valid Email
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name" class="col-xs-2 control-label">City</label>
+                <div class="col-xs-10">
+                    <input required id="city" name="city" [(ngModel)] = "customer.city" type="text"
+                    placeholder="Enter City" class="form-control" #cityControl="ngModel" minlength="3" maxlength="20" 
+                    >
+                </div>
+                <div class="text-danger" *ngIf="cityControl.invalid && cityControl.touched">
+                    <div *ngIf="cityControl.errors.required">
+                        City is required
+                    </div>
+                    <div class="text-danger" *ngIf="cityControl.errors.minlength">
+                        Please Enter Minimum of 3 Characters  City
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="name" class="col-xs-2 control-label">Phone Number</label>
+                <div class="col-xs-10">
+                    <input required id="phone" name="phone" [(ngModel)] = "customer.phoneNumber" type="number"
+                    placeholder="Enter phone number" class="form-control" #phoneControl="ngModel" minlength="10" maxlength="10" 
+                    pattern="^[0-9]">
+                </div>
+                <div class="text-danger" *ngIf="phoneControl.invalid && phoneControl.touched">
+                    <div *ngIf="phoneControl.errors.required">
+                        Phone Number is Required
+                    </div>
+                    <div class="text-danger" *ngIf="phoneControl.errors.minlength">
+                        Please Enter valid Phone Number
+                    </div>
+                    <div class="text-danger" *ngIf="phoneControl.errors.pattern">
+                        Please Enter Valid Phone Number
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name">ZipCode</label>
+            <input type="text" placeholder="Enter Zipcode" class="form-control" id="ZipCode" required [(ngModel)]="customer.zipCode" name="ZipCode">
+        </div>
+
+        <div class="form-group">
+            <label for="name">Password</label>
+            <input type="text" placeholder="Enter Password" class="form-control" id="password" required [(ngModel)]="customer.password" name="password">
+        </div>
+        <div class="form-group">
+            <label for="name">Country</label>
+            <input type="text" placeholder="Enter Country" class="form-control" id="country" required [(ngModel)]="customer.country" name="country">
+        </div>
+        
+       
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+    <h4>You submitted successfully!</h4>
+</div>
